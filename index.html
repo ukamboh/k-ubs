@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K UBS Portfolio - Future of Collaboration</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-glow: #00ffff;
+            --secondary-glow: #ff00ff;
+            --accent-glow: #ffff00;
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #2a2a2a;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --text-accent: #00ffff;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .orbitron {
+            font-family: 'Orbitron', monospace;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        .glow-box {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+        }
+
+        .futuristic-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+            background-size: 400% 400%;
+            animation: gradient-shift 10s ease infinite;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .logo-merge {
+            animation: merge 4s ease-in-out infinite;
+        }
+
+        @keyframes merge {
+            0% { transform: translateX(0) scale(1); opacity: 1; }
+            25% { transform: translateX(50px) scale(0.8); opacity: 0.8; }
+            50% { transform: translateX(100px) scale(0.5); opacity: 0.3; }
+            75% { transform: translateX(50px) scale(0.8); opacity: 0.8; }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+
+        .logo-merge-right {
+            animation: merge-right 4s ease-in-out infinite;
+        }
+
+        @keyframes merge-right {
+            0% { transform: translateX(0) scale(1); opacity: 1; }
+            25% { transform: translateX(-50px) scale(0.8); opacity: 0.8; }
+            50% { transform: translateX(-100px) scale(0.5); opacity: 0.3; }
+            75% { transform: translateX(-50px) scale(0.8); opacity: 0.8; }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+
+        .center-logo {
+            animation: center-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes center-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .nav-glass {
+            backdrop-filter: blur(20px);
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .card-hover:hover {
+            transform: perspective(1000px) rotateY(10deg) translateZ(50px);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.4);
+        }
+
+        .timeline-item {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: timeline-fade 0.8s ease forwards;
+        }
+
+        @keyframes timeline-fade {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(42, 42, 42, 0.9);
+            border: 1px solid var(--primary-glow);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-control:hover {
+            background: rgba(0, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-glow), transparent);
+            margin: 4rem 0;
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.6); }
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(42, 42, 42, 0.9), rgba(26, 26, 26, 0.9));
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-glow);
+            box-shadow: 0 20px 40px rgba(0, 255, 255, 0.3);
+        }
+
+        .team-card {
+            background: linear-gradient(135deg, rgba(42, 42, 42, 0.9), rgba(26, 26, 26, 0.9));
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: var(--secondary-glow);
+            box-shadow: 0 20px 40px rgba(255, 0, 255, 0.3);
+        }
+
+        .form-input {
+            background: rgba(42, 42, 42, 0.8);
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border: none;
+            color: var(--bg-primary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 255, 0.4);
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .hidden-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .visible-section {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="futuristic-bg">
+    <!-- Background Music Control -->
+    <div class="music-control" id="musicControl">
+        <i class="fas fa-music text-cyan-400"></i>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-glass fixed top-0 left-0 right-0 z-50 px-8 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="orbitron text-2xl font-bold glow-text">K UBS</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-cyan-400 hover:text-white transition-colors">Home</a>
+                <a href="#about" class="text-cyan-400 hover:text-white transition-colors">About</a>
+                <a href="#team" class="text-cyan-400 hover:text-white transition-colors">Team</a>
+                <a href="#projects" class="text-cyan-400 hover:text-white transition-colors">Projects</a>
+                <a href="#journey" class="text-cyan-400 hover:text-white transition-colors">Journey</a>
+                <a href="#contact" class="text-cyan-400 hover:text-white transition-colors">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobileMenuToggle" class="text-cyan-400 text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="fixed inset-0 bg-black bg-opacity-95 z-40 hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#home" class="text-2xl text-cyan-400 hover:text-white transition-colors">Home</a>
+            <a href="#about" class="text-2xl text-cyan-400 hover:text-white transition-colors">About</a>
+            <a href="#team" class="text-2xl text-cyan-400 hover:text-white transition-colors">Team</a>
+            <a href="#projects" class="text-2xl text-cyan-400 hover:text-white transition-colors">Projects</a>
+            <a href="#journey" class="text-2xl text-cyan-400 hover:text-white transition-colors">Journey</a>
+            <a href="#contact" class="text-2xl text-cyan-400 hover:text-white transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Landing Page -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="w-full h-full bg-gradient-to-br from-cyan-900 to-purple-900"></div>
+        </div>
+        
+        <!-- 3D Logo Animation -->
+        <div class="container mx-auto px-8 text-center relative z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-center space-y-16 lg:space-y-0 lg:space-x-32">
+                <!-- Left Logo - MR KALI -->
+                <div class="flex flex-col items-center space-y-8">
+                    <div class="logo-merge floating">
+                        <img src="https://mixcove.site/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-07-at-20.15.34_b79b9dd3.jpg" alt="MR KALI Logo" class="w-48 h-48 object-contain glow-box rounded-full p-4">
+                    </div>
+                    <div class="max-w-sm text-center">
+                        <h3 class="orbitron text-2xl font-bold text-cyan-400 mb-4">MR KALI</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Innovation-driven technology solutions with cutting-edge expertise in modern development frameworks and futuristic digital experiences.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Center Merged Logo -->
+                <div class="flex flex-col items-center space-y-8">
+                    <div class="center-logo">
+                        <img src="https://mixcove.site/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-07-at-20.15.35_f8b3b87c.jpg" alt="K UBS Collaboration Logo" class="w-64 h-64 object-contain pulse-glow rounded-full p-6">
+                    </div>
+                    <div class="text-center">
+                        <h1 class="orbitron text-6xl font-black glow-text mb-4">K UBS</h1>
+                        <p class="text-2xl text-purple-400 mb-8">The Future of Collaboration</p>
+                        <div class="flex space-x-4 justify-center">
+                            <div class="w-16 h-1 bg-cyan-400 rounded"></div>
+                            <div class="w-16 h-1 bg-purple-400 rounded"></div>
+                            <div class="w-16 h-1 bg-yellow-400 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Logo - UBS GROUP -->
+                <div class="flex flex-col items-center space-y-8">
+                    <div class="logo-merge-right floating">
+                        <img src="https://mixcove.site/wp-content/uploads/2025/07/WhatsApp-Image-2025-07-07-at-20.15.34_b560f52c.jpg" alt="UBS GROUP Logo" class="w-48 h-48 object-contain glow-box rounded-full p-4">
+                    </div>
+                    <div class="max-w-sm text-center">
+                        <h3 class="orbitron text-2xl font-bold text-purple-400 mb-4">UBS GROUP</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Strategic business solutions with global reach and enterprise-level expertise in transforming digital landscapes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down text-cyan-400 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 hidden-section">
+        <div class="container mx-auto px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="orbitron text-5xl font-bold glow-text mb-8">About K UBS</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16">
+                    <!-- Freelancer Profile -->
+                    <div class="card-hover glow-box bg-gray-800 rounded-3xl p-8">
+                        <div class="text-center mb-8">
+                            <div class="w-32 h-32 bg-gradient-to-br from-cyan-400 to-purple-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <i class="fas fa-user text-4xl text-black"></i>
+                            </div>
+                            <h3 class="orbitron text-3xl font-bold text-cyan-400 mb-2">The Freelancer</h3>
+                            <p class="text-purple-400 text-lg">Lead Developer & Innovation Architect</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Background</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    With over 1.5 years of experience in full-stack development, I specialize in creating cutting-edge digital solutions that merge aesthetic excellence with functional superiority. My expertise spans modern frameworks, cloud architecture, and emerging technologies.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Experience</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    Led development teams for Fortune 500 companies, architected scalable solutions for startups, and delivered innovative products that have impacted millions of users worldwide. Specialized in React, Node.js, cloud infrastructure, and AI integration.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Motivation</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    Driven by the belief that technology should enhance human potential, I focus on creating solutions that are not just functional, but transformative. Every project is an opportunity to push boundaries and redefine what's possible.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Collaboration Vision -->
+                    <div class="card-hover glow-box bg-gray-800 rounded-3xl p-8">
+                        <div class="text-center mb-8">
+                            <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-yellow-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                                <i class="fas fa-rocket text-4xl text-black"></i>
+                            </div>
+                            <h3 class="orbitron text-3xl font-bold text-purple-400 mb-2">K UBS Vision</h3>
+                            <p class="text-yellow-400 text-lg">Collaboration • Innovation • Excellence</p>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Our Mission</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    K UBS represents the perfect fusion of creative innovation and strategic business acumen. We bridge the gap between cutting-edge technology and real-world business needs, delivering solutions that drive measurable impact.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Strategic Goals</h4>
+                                <ul class="text-gray-300 space-y-2">
+                                    <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-3"></i>Revolutionize digital transformation strategies</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-3"></i>Build scalable, future-proof solutions</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-3"></i>Foster innovation through collaboration</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-cyan-400 mr-3"></i>Deliver exceptional value to partners</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-3">Future Vision</h4>
+                                <p class="text-gray-300 leading-relaxed">
+                                    We envision a future where technology seamlessly integrates with human creativity, where every digital interaction is meaningful, and where businesses can achieve unprecedented levels of efficiency and growth through innovative solutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 hidden-section">
+        <div class="container mx-auto px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="orbitron text-5xl font-bold glow-text mb-8">Our Team</h2>
+                    <p class="text-xl text-gray-300 mb-8">Meet the visionaries behind K UBS</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="team-card rounded-3xl p-8 text-center">
+                        <div class="w-40 h-40 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-user text-5xl text-black"></i>
+                        </div>
+                        <h3 class="orbitron text-2xl font-bold text-cyan-400 mb-2">[UMaR]</h3>
+                        <p class="text-purple-400 text-lg mb-4">Lead Developer</p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Full-stack developer with expertise in modern frameworks, cloud architecture, and AI integration. Passionate about creating innovative solutions that drive business growth.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-cyan-400 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-cyan-400 hover:text-white transition-colors">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-cyan-400 hover:text-white transition-colors">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="team-card rounded-3xl p-8 text-center">
+                        <div class="w-40 h-40 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-user text-5xl text-black"></i>
+                        </div>
+                        <h3 class="orbitron text-2xl font-bold text-purple-400 mb-2">[MU]</h3>
+                        <p class="text-yellow-400 text-lg mb-4">Business Strategist</p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Strategic business consultant with extensive experience in digital transformation and enterprise solutions. Focused on bridging technology and business objectives.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-purple-400 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-purple-400 hover:text-white transition-colors">
+                                <i class="fab fa-github text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-purple-400 hover:text-white transition-colors">
+                                <i class="fab fa-twitter text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-card rounded-3xl p-8 text-center">
+                        <div class="w-40 h-40 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-user text-5xl text-black"></i>
+                        </div>
+                        <h3 class="orbitron text-2xl font-bold text-yellow-400 mb-2">[uMair]</h3>
+                        <p class="text-cyan-400 text-lg mb-4">UX/UI Designer</p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            Creative designer specializing in user experience and interface design. Expert in creating intuitive, beautiful, and functional digital experiences.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#" class="text-yellow-400 hover:text-white transition-colors">
+                                <i class="fab fa-linkedin text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-yellow-400 hover:text-white transition-colors">
+                                <i class="fab fa-dribbble text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-yellow-400 hover:text-white transition-colors">
+                                <i class="fab fa-behance text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 hidden-section">
+        <div class="container mx-auto px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="orbitron text-5xl font-bold glow-text mb-8">Our Projects</h2>
+                    <p class="text-xl text-gray-300 mb-8">Showcasing innovation and excellence</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card rounded-3xl overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                            <i class="fas fa-laptop-code text-6xl text-white"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="orbitron text-2xl font-bold text-cyan-400 mb-4">E-Commerce Platform</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-cyan-900 text-cyan-300 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-cyan-900 text-cyan-300 rounded-full text-sm">Node.js</span>
+                                <span class="px-3 py-1 bg-cyan-900 text-cyan-300 rounded-full text-sm">MongoDB</span>
+                                <span class="px-3 py-1 bg-cyan-900 text-cyan-300 rounded-full text-sm">AWS</span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                Full-stack e-commerce solution with real-time inventory management, secure payment processing, and advanced analytics dashboard. Built for scalability and performance.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="flex items-center text-cyan-400 hover:text-white transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                                <a href="#" class="flex items-center text-purple-400 hover:text-white transition-colors">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card rounded-3xl overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                            <i class="fas fa-mobile-alt text-6xl text-white"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="orbitron text-2xl font-bold text-purple-400 mb-4">Mobile App Suite</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-purple-900 text-purple-300 rounded-full text-sm">React Native</span>
+                                <span class="px-3 py-1 bg-purple-900 text-purple-300 rounded-full text-sm">Firebase</span>
+                                <span class="px-3 py-1 bg-purple-900 text-purple-300 rounded-full text-sm">TypeScript</span>
+                                <span class="px-3 py-1 bg-purple-900 text-purple-300 rounded-full text-sm">Redux</span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                Cross-platform mobile application with offline capabilities, push notifications, and seamless cloud synchronization. Optimized for both iOS and Android.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="flex items-center text-purple-400 hover:text-white transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                                <a href="#" class="flex items-center text-cyan-400 hover:text-white transition-colors">
+                                    <i class="fas fa-download mr-2"></i>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card rounded-3xl overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
+                            <i class="fas fa-chart-line text-6xl text-white"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="orbitron text-2xl font-bold text-yellow-400 mb-4">Analytics Dashboard</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-yellow-900 text-yellow-300 rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-yellow-900 text-yellow-300 rounded-full text-sm">D3.js</span>
+                                <span class="px-3 py-1 bg-yellow-900 text-yellow-300 rounded-full text-sm">Python</span>
+                                <span class="px-3 py-1 bg-yellow-900 text-yellow-300 rounded-full text-sm">Docker</span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                Advanced data visualization platform with real-time analytics, machine learning insights, and customizable reporting tools for enterprise clients.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="flex items-center text-yellow-400 hover:text-white transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                                <a href="#" class="flex items-center text-orange-400 hover:text-white transition-colors">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card rounded-3xl overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                            <i class="fas fa-cloud text-6xl text-white"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="orbitron text-2xl font-bold text-green-400 mb-4">Cloud Infrastructure</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-green-900 text-green-300 rounded-full text-sm">AWS</span>
+                                <span class="px-3 py-1 bg-green-900 text-green-300 rounded-full text-sm">Terraform</span>
+                                <span class="px-3 py-1 bg-green-900 text-green-300 rounded-full text-sm">Kubernetes</span>
+                                <span class="px-3 py-1 bg-green-900 text-green-300 rounded-full text-sm">CI/CD</span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                Scalable cloud architecture with auto-scaling, load balancing, and comprehensive monitoring. Built for high availability and performance.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="flex items-center text-green-400 hover:text-white transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                                <a href="#" class="flex items-center text-teal-400 hover:text-white transition-colors">
+                                    <i class="fas fa-file-alt mr-2"></i>
+                                    Documentation
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card rounded-3xl overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                            <i class="fas fa-brain text-6xl text-white"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="orbitron text-2xl font-bold text-indigo-400 mb-4">AI Integration Platform</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-indigo-900 text-indigo-300 rounded-full text-sm">Python</span>
+                                <span class="px-3 py-1 bg-indigo-900 text-indigo-300 rounded-full text-sm">TensorFlow</span>
+                                <span class="px-3 py-1 bg-indigo-900 text-indigo-300 rounded-full text-sm">FastAPI</span>
+                                <span class="px-3 py-1 bg-indigo-900 text-indigo-300 rounded-full text-sm">Docker</span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                Machine learning platform with natural language processing, computer vision, and predictive analytics capabilities. Ready for enterprise deployment.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="flex items-center text-indigo-400 hover:text-white transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                                <a href="#" class="flex items-center text-purple-400 hover:text-white transition-colors">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    API Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card rounded-3xl overflow-hidden">
+                        <div class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+                            <i class="fas fa-gamepad text-6xl text-white"></i>
+                        </div>
+                        <div class="p-8">
+                            <h3 class="orbitron text-2xl font-bold text-pink-400 mb-4">Interactive Web Game</h3>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-pink-900 text-pink-300 rounded-full text-sm">Three.js</span>
+                                <span class="px-3 py-1 bg-pink-900 text-pink-300 rounded-full text-sm">WebGL</span>
+                                <span class="px-3 py-1 bg-pink-900 text-pink-300 rounded-full text-sm">Socket.io</span>
+                                <span class="px-3 py-1 bg-pink-900 text-pink-300 rounded-full text-sm">WebRTC</span>
+                            </div>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                Multiplayer 3D web game with real-time collaboration, physics simulation, and cross-platform compatibility. Built with modern web technologies.
+                            </p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="flex items-center text-pink-400 hover:text-white transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Code
+                                </a>
+                                <a href="#" class="flex items-center text-rose-400 hover:text-white transition-colors">
+                                    <i class="fas fa-play mr-2"></i>
+                                    Play Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey" class="py-24 hidden-section">
+        <div class="container mx-auto px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="orbitron text-5xl font-bold glow-text mb-8">Our Journey</h2>
+                    <p class="text-xl text-gray-300 mb-8">The evolution from vision to reality</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-400 to-purple-400 rounded-full"></div>
+
+                    <!-- Timeline Items -->
+                    <div class="space-y-24">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-item flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-gray-800 rounded-3xl p-8 glow-box">
+                                    <div class="flex items-center justify-end mb-4">
+                                        <div class="text-cyan-400 text-right">
+                                            <h3 class="orbitron text-2xl font-bold">MR KALI Formation</h3>
+                                            <p class="text-lg">January 2023</p>
+                                        </div>
+                                        <div class="w-16 h-16 bg-cyan-400 rounded-full flex items-center justify-center ml-4">
+                                            <i class="fas fa-rocket text-black text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 leading-relaxed">
+                                        Founded with a vision to revolutionize digital experiences through innovative technology solutions. Started with a focus on modern web development and cutting-edge user interfaces.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 bg-cyan-400 rounded-full absolute left-1/2 transform -translate-x-1/2 pulse-glow"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-item flex items-center">
+                            <div class="w-1/2 pr-8"></div>
+                            <div class="w-8 h-8 bg-purple-400 rounded-full absolute left-1/2 transform -translate-x-1/2 pulse-glow"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-gray-800 rounded-3xl p-8 glow-box">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-building text-black text-xl"></i>
+                                        </div>
+                                        <div class="text-purple-400">
+                                            <h3 class="orbitron text-2xl font-bold">UBS GROUP Establishment</h3>
+                                            <p class="text-lg">March 2022</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 leading-relaxed">
+                                        UBS GROUP emerged as a strategic business consultancy focused on enterprise solutions and digital transformation. Specialized in bridging the gap between technology and business objectives.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-item flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-gray-800 rounded-3xl p-8 glow-box">
+                                    <div class="flex items-center justify-end mb-4">
+                                        <div class="text-yellow-400 text-right">
+                                            <h3 class="orbitron text-2xl font-bold">First Collaboration</h3>
+                                            <p class="text-lg">August 2024</p>
+                                        </div>
+                                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center ml-4">
+                                            <i class="fas fa-handshake text-black text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 leading-relaxed">
+                                        MR KALI and UBS GROUP joined forces for the first time on a major enterprise project, combining technical expertise with strategic business insights to deliver exceptional results.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 bg-yellow-400 rounded-full absolute left-1/2 transform -translate-x-1/2 pulse-glow"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+
+                        <!-- Timeline Item 4 -->
+                        <div class="timeline-item flex items-center">
+                            <div class="w-1/2 pr-8"></div>
+                            <div class="w-8 h-8 bg-green-400 rounded-full absolute left-1/2 transform -translate-x-1/2 pulse-glow"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-gray-800 rounded-3xl p-8 glow-box">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-chart-line text-black text-xl"></i>
+                                        </div>
+                                        <div class="text-green-400">
+                                            <h3 class="orbitron text-2xl font-bold">Rapid Growth</h3>
+                                            <p class="text-lg">December 2024</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 leading-relaxed">
+                                        The success of our collaboration led to rapid growth, with multiple high-profile clients and projects. We expanded our team and capabilities to meet increasing demand.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 5 -->
+                        <div class="timeline-item flex items-center">
+                            <div class="w-1/2 pr-8 text-right">
+                                <div class="bg-gray-800 rounded-3xl p-8 glow-box">
+                                    <div class="flex items-center justify-end mb-4">
+                                        <div class="text-blue-400 text-right">
+                                            <h3 class="orbitron text-2xl font-bold">K UBS Formation</h3>
+                                            <p class="text-lg">March 2025</p>
+                                        </div>
+                                        <div class="w-16 h-16 bg-blue-400 rounded-full flex items-center justify-center ml-4">
+                                            <i class="fas fa-star text-black text-xl"></i>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 leading-relaxed">
+                                        The formal establishment of K UBS as a unified entity, combining the strengths of both organizations into a powerful collaboration focused on innovation and excellence.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="w-8 h-8 bg-blue-400 rounded-full absolute left-1/2 transform -translate-x-1/2 pulse-glow"></div>
+                            <div class="w-1/2 pl-8"></div>
+                        </div>
+
+                        <!-- Timeline Item 6 -->
+                        <div class="timeline-item flex items-center">
+                            <div class="w-1/2 pr-8"></div>
+                            <div class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full absolute left-1/2 transform -translate-x-1/2 pulse-glow"></div>
+                            <div class="w-1/2 pl-8">
+                                <div class="bg-gray-800 rounded-3xl p-8 glow-box">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full flex items-center justify-center mr-4">
+                                            <i class="fas fa-infinity text-black text-xl"></i>
+                                        </div>
+                                        <div class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">
+                                            <h3 class="orbitron text-2xl font-bold">Future  Vision</h3>
+                                            <p class="text-lg">2027 & Beyond</p>
+                                        </div>
+                                    </div>
+                                    <p class="text-gray-300 leading-relaxed">
+                                        Looking ahead, K UBS continues to push boundaries in technology and business innovation, with plans for global expansion and breakthrough solutions that will define the future of digital collaboration.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 hidden-section">
+        <div class="container mx-auto px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="orbitron text-5xl font-bold glow-text mb-8">Get In Touch</h2>
+                    <p class="text-xl text-gray-300 mb-8">Let's build the future together</p>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-16">
+                    <!-- Contact Form -->
+                    <div class="card-hover glow-box bg-gray-800 rounded-3xl p-8">
+                        <h3 class="orbitron text-3xl font-bold text-cyan-400 mb-8">Send Message</h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label class="block text-white text-lg font-medium mb-2">Name</label>
+                                <input type="text" class="form-input w-full px-4 py-3 rounded-xl" placeholder="Your Name">
+                            </div>
+                            <div>
+                                <label class="block text-white text-lg font-medium mb-2">Email</label>
+                                <input type="email" class="form-input w-full px-4 py-3 rounded-xl" placeholder="your@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-white text-lg font-medium mb-2">Subject</label>
+                                <input type="text" class="form-input w-full px-4 py-3 rounded-xl" placeholder="Project Discussion">
+                            </div>
+                            <div>
+                                <label class="block text-white text-lg font-medium mb-2">Message</label>
+                                <textarea class="form-input w-full px-4 py-3 rounded-xl h-32 resize-none" placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full py-4 rounded-xl text-lg font-semibold">
+                                Send Message
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-8">
+                        <div class="card-hover glow-box bg-gray-800 rounded-3xl p-8">
+                            <h3 class="orbitron text-3xl font-bold text-purple-400 mb-8">Contact Info</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 bg-cyan-400 rounded-full flex items-center justify-center mr-6">
+                                        <i class="fas fa-envelope text-black text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white text-lg font-semibold">Email</h4>
+                                        <p class="text-gray-300">hello@kubs.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 bg-purple-400 rounded-full flex items-center justify-center mr-6">
+                                        <i class="fab fa-whatsapp text-black text-xl"></i>
+                                         <!-- <i class="text-black text-xl fas fa-phone"></i> -->
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white text-lg font-semibold">Whatsapp</h4>
+                                        <p class="text-gray-300">03038179273</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mr-6">
+                                        <!-- <i class="fab fa-github text-black text-xl"></i> -->
+                                         <i class="text-black text-xl fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white text-lg font-semibold">phone</h4>
+                                        <p class="text-gray-300">03140147424</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 bg-green-400 rounded-full flex items-center justify-center mr-6">
+                                        <i class="fas fa-map-marker-alt text-black text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white text-lg font-semibold">Location</h4>
+                                        <p class="text-gray-300">Global Remote</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="card-hover glow-box bg-gray-800 rounded-3xl p-8">
+                            <h3 class="orbitron text-2xl font-bold text-yellow-400 mb-6">Follow Us</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <i class="fab fa-twitter text-white text-xl"></i>
+                                </a>
+                                <a href="#" class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <i class="fab fa-instagram text-white text-xl"></i>
+                                </a>
+                                <a href="#" class="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <i class="fab fa-facebook text-white text-xl"></i>
+                                </a>
+                                <a href="#" class="w-16 h-16 bg-gradient-to-br from-red-400 to-pink-500 rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <i class="fab fa-youtube text-white text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 border-t border-gray-700">
+        <div class="container mx-auto px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="orbitron text-4xl font-bold glow-text mb-4">K UBS</h3>
+                    <p class="text-xl text-gray-300">The Future of Collaboration</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 mb-4 md:mb-0">
+                        <p>&copy; 2025 K UBS. All rights reserved.</p>
+                    </div>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-cyan-400 transition-colors">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = 80;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Music control
+        const musicControl = document.getElementById('musicControl');
+        let isMusicPlaying = false;
+
+        musicControl.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                musicControl.innerHTML = '<i class="fas fa-music text-cyan-400"></i>';
+                isMusicPlaying = false;
+            } else {
+                musicControl.innerHTML = '<i class="fas fa-volume-up text-cyan-400"></i>';
+                isMusicPlaying = true;
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible-section');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.hidden-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Timeline animation
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = `${entry.target.dataset.delay || 0}s`;
+                    entry.target.classList.add('visible-section');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+            item.dataset.delay = index * 0.2;
+            timelineObserver.observe(item);
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            parallaxElements.forEach(element => {
+                const speed = element.dataset.speed || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
+            });
+        });
+
+        // Form submission
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            
+            // Simulate form submission
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Sending...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                submitButton.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+                submitButton.style.background = 'linear-gradient(135deg, #10b981, #34d399)';
+                
+                setTimeout(() => {
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                    submitButton.style.background = 'linear-gradient(135deg, var(--primary-glow), var(--secondary-glow))';
+                    contactForm.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Dynamic typing effect for main title
+        const titleElement = document.querySelector('#home h1');
+        const titleText = 'K UBS';
+        let titleIndex = 0;
+
+        function typeTitle() {
+            if (titleIndex < titleText.length) {
+                titleElement.textContent = titleText.slice(0, titleIndex + 1);
+                titleIndex++;
+                setTimeout(typeTitle, 200);
+            }
+        }
+
+        // Start typing effect after page load
+        window.addEventListener('load', () => {
+            setTimeout(typeTitle, 1000);
+        });
+
+        // Add active nav link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-white');
+                link.classList.add('text-cyan-400');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-cyan-400');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
